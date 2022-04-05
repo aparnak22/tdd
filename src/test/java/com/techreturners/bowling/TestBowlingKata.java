@@ -21,6 +21,11 @@ public class TestBowlingKata {
 
         assertEquals(90,score);
 
+        char[][] framesArr2 = new char[][]{ {'8','-'},
+                {'9','-'},{'9','-'},{'7','-'},{'9','-'},
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},{'9','-'}};
+
+        assertEquals(87,bk.calculateScore(Arrays.asList(framesArr2)));
     }
 }
 
