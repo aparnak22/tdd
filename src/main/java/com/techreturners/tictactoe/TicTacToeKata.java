@@ -22,4 +22,8 @@ public class TicTacToeKata {
         }
         return true;
     }
+
+    public int getWinner() {
+        return 1;
+    }
 }

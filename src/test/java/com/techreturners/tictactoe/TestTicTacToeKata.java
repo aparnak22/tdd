@@ -32,5 +32,15 @@ public class TestTicTacToeKata {
         assertEquals(0,moveResult);
     }
 
-
+    @Test
+    public void testWinner()  {
+        TicTacToeKata game = new TicTacToeKata();
+        game.markSquare(2,2);//  X
+        game.markSquare(1,1);//0__,_X_,___
+        game.markSquare(2,1);//0__,XX_,___
+        game.markSquare(1,2);//00_,XX_,___
+        int moveResult = game.markSquare(2,3);//00_,XXX,___
+        int winner = game.getWinner();
+        assertEquals(1,winner);
+    }
 }
