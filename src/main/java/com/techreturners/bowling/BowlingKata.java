@@ -19,10 +19,8 @@ public class BowlingKata {
                 }
             }
         }
-        for (int frameScore:frameScoreArr
-             ) {
-            score += frameScore;
-        }
+        for(int i= 0;i<10;i++) score += frameScoreArr[i];
+
         return score;
     }
 }

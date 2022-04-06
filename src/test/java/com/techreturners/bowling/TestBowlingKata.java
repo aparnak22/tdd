@@ -38,6 +38,16 @@ public class TestBowlingKata {
         assertEquals(100,score);
     }
 
+    @Test
+    public void testCalcScoreForSpareAtLastTurn(){
+        char[][] framesArr = new char[][]{ {'9','-'},
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},{'9','/'},{'9'}};
+        BowlingKata bk = new  BowlingKata();
+        int score = bk.calculateScore(Arrays.asList(framesArr));
+        assertEquals(100,score);
+    }
+
 }
 
 
