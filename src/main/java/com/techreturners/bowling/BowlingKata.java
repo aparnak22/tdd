@@ -9,25 +9,35 @@ public class BowlingKata {
 
     public int calculateScore(List<char[]> frameList) {
         int score = 0;
+        int[][] throwScoreArr = new int[frameList.size()][2];
         int[] frameScoreArr = new int[frameList.size()];
+
         for (int i = frameList.size()-1 ; i >= 0 ; i--) {
-            for (char rollScore: frameList.get(i)) {
+            for(int k = 0; k< frameList.get(i).length;k++){
+                char rollScore = frameList.get(i)[k];
                 if (Character.isDigit(rollScore)) {
-                    frameScoreArr[i] += Character.getNumericValue(rollScore);
+                    throwScoreArr[i][k] += Character.getNumericValue(rollScore);
+                    frameScoreArr[i] +=throwScoreArr[i][k];
                 }
                 else if (rollScore == '/'){
-                    frameScoreArr[i] = 10;
+                    throwScoreArr[i][k] = 10;
                     if (i < frameList.size()-1)
-                         frameScoreArr[i] += frameScoreArr[i+1];
+                        frameScoreArr[i] =  throwScoreArr[i][k]  + throwScoreArr[i+1][0];
+                    else
+                        frameScoreArr[i] = throwScoreArr[i][k];
                 }
                 else if (rollScore == 'X'){
-                    frameScoreArr[i] = 10;
+                    throwScoreArr[i][k] = 10;
                     if (i < frameList.size()-2)
-                        frameScoreArr[i] += frameScoreArr[i+1] + frameScoreArr[i+2];
+                        frameScoreArr[i] =    throwScoreArr[i][k]  + throwScoreArr[i+1][0] + throwScoreArr[i+2][0];
+                    else
+                        frameScoreArr[i] =throwScoreArr[i][k];
                 }
             }
         }
-        for(int i= 0;i<10;i++) score += frameScoreArr[i];
+        for(int i= 0;i<10;i++) {
+           score += frameScoreArr[i];
+        }
 
         return score;
     }

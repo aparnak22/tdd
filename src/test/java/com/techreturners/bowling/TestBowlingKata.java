@@ -35,7 +35,7 @@ public class TestBowlingKata {
                 {'9','-'},{'9','-'},{'9','-'},{'9','-'},{'9','-'}};
         BowlingKata bk = new  BowlingKata();
         int score = bk.calculateScore(Arrays.asList(framesArr));
-        assertEquals(100,score);
+         assertEquals(100,score);
     }
 
     @Test
@@ -46,6 +46,16 @@ public class TestBowlingKata {
         BowlingKata bk = new  BowlingKata();
         int score = bk.calculateScore(Arrays.asList(framesArr));
         assertEquals(100,score);
+    }
+
+    @Test
+    public void testCalcScoreForSpareAtEveryTurnExceptTheBonusThrow(){
+        char[][] framesArr = new char[][]{ {'5','/'},
+                {'5','/'},{'5','/'},{'5','/'},{'5','/'},
+                {'5','/'},{'5','/'},{'5','/'},{'5','/'},{'5','/'},{'5'}};
+        BowlingKata bk = new  BowlingKata();
+        int score = bk.calculateScore(Arrays.asList(framesArr));
+        assertEquals(150,score);
     }
 
     @Test
