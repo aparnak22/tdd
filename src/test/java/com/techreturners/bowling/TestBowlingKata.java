@@ -27,6 +27,17 @@ public class TestBowlingKata {
 
         assertEquals(87,bk.calculateScore(Arrays.asList(framesArr2)));
     }
+
+    @Test
+    public void testCalcScoreForOneSpareBeforeLastTurn(){
+        char[][] framesArr = new char[][]{ {'9','/'},
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},{'9','-'}};
+        BowlingKata bk = new  BowlingKata();
+        int score = bk.calculateScore(Arrays.asList(framesArr));
+        assertEquals(100,score);
+    }
+
 }
 
 

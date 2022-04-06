@@ -41,4 +41,11 @@ public class TestConversionToRomanNumerals {
 
 
     }
+
+    @Test
+    public void testMoreCases() {
+        RomanNumeralConverter converter = new RomanNumeralConverter();
+        assertEquals( "XCIV" , converter.toRomanNumber(94));
+
+    }
 }
