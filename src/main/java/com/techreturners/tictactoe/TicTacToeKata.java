@@ -15,7 +15,7 @@ public class TicTacToeKata {
     }
 
     private boolean checkIfGameContinues(){
-        return !checkThreeInARowMatch() && !checkThreeInAColMatch();
+        return !checkThreeInARowMatch() && !checkThreeInAColMatch() &&!checkThreeInADiagonalMatch();
     }
 
     private boolean checkThreeInAColMatch() {
@@ -37,6 +37,21 @@ public class TicTacToeKata {
                 return true;
             }
         }
+        return false;
+    }
+
+    private boolean checkThreeInADiagonalMatch() {
+            if (gameBoard[0][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][2]
+                    && (gameBoard[0][0] == 2 || gameBoard[0][0]==1) ){
+                winner = gameBoard[0][0];
+                return true;
+            }
+            if (gameBoard[0][2] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][0]
+                    && (gameBoard[0][2] == 2 || gameBoard[0][2]==1) ){
+                winner = gameBoard[0][2];
+                return true;
+            }
+
         return false;
     }
 

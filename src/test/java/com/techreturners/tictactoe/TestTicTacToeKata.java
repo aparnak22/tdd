@@ -68,4 +68,31 @@ public class TestTicTacToeKata {
         assertEquals(0,moveResult);
     }
 
+    @Test
+    public void testWinnerInCol() {
+        TicTacToeKata game = new TicTacToeKata();
+        game.markSquare(2,2);//  X
+        game.markSquare(1,1);//0__,_X_,___
+        game.markSquare(1,2);//0X_,_X_,___
+        game.markSquare(2,1);//0X_,OX_,___
+
+        int moveResult = game.markSquare(3,2);//0X_,OX_,_X_
+
+        assertEquals(0,moveResult);
+        assertEquals(1,  game.getWinner());
+    }
+
+    @Test
+    public void testWinnerInDiagonal() {
+        TicTacToeKata game = new TicTacToeKata();
+        game.markSquare(2,2);//  X
+        game.markSquare(1,1);//0__,_X_,___
+        game.markSquare(1,3);//0_X,_X_,___
+        game.markSquare(2,1);//0_X,OX_,___
+
+        int moveResult = game.markSquare(3,1);//0_X,OX_,XX_
+
+        assertEquals(0,moveResult);
+        assertEquals(1,  game.getWinner());
+    }
 }
