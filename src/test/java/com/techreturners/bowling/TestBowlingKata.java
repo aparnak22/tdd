@@ -65,7 +65,28 @@ public class TestBowlingKata {
                 {'9','-'},{'9','-'},{'9','-'},{'9','-'},{'9','-'}};
         BowlingKata bk = new  BowlingKata();
         int score = bk.calculateScore(Arrays.asList(framesArr));
-        assertEquals(109,score);
+        assertEquals(100,score);
+    }
+
+
+    @Test
+    public void testCalcScoreForStrikeAtLastTurn(){
+        char[][] framesArr = new char[][]{
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},{'9','-'},{'X','3','5'}};
+        BowlingKata bk = new  BowlingKata();
+        int score = bk.calculateScore(Arrays.asList(framesArr));
+        assertEquals(99,score);
+    }
+
+    @Test
+    public void testCalcScoreForStrikeAtLastTurnLastThrows(){
+        char[][] framesArr = new char[][]{
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},
+                {'9','-'},{'9','-'},{'9','-'},{'9','-'},{'9','-'},{'X','X','X'}};
+        BowlingKata bk = new  BowlingKata();
+        int score = bk.calculateScore(Arrays.asList(framesArr));
+        assertEquals(111,score);
     }
 
     @Test
@@ -96,7 +117,11 @@ public class TestBowlingKata {
         assertEquals(87,bk2.calculateScore());
     }
 
-
+    @Test
+    public void testPerfectGame(){
+        BowlingKata bk2 = new  BowlingKata();
+        assertEquals(300, bk2.calculateScore("X X X X X X X X X XXX"));
+    }
 }
 
 

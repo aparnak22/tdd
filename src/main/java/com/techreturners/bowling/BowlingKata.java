@@ -7,9 +7,15 @@ public class BowlingKata {
     
     List<char[]> bowlingFrameList = new ArrayList<>();
 
+    public int calculateScore(String frameListStr) {
+
+        StringInputConverter inputConverter = new StringInputConverter(frameListStr);
+        return calculateScore(inputConverter.convert());
+
+    }
     public int calculateScore(List<char[]> frameList) {
         int score = 0;
-        int[][] throwScoreArr = new int[frameList.size()][2];
+        int[][] throwScoreArr = new int[frameList.size()][3];
         int[] frameScoreArr = new int[frameList.size()];
 
         for (int i = frameList.size()-1 ; i >= 0 ; i--) {
@@ -20,18 +26,24 @@ public class BowlingKata {
                     frameScoreArr[i] +=throwScoreArr[i][k];
                 }
                 else if (rollScore == '/'){
-                    throwScoreArr[i][k] = 10;
+                    throwScoreArr[i][k] = 10 - throwScoreArr[i][0];
                     if (i < frameList.size()-1)
-                        frameScoreArr[i] =  throwScoreArr[i][k]  + throwScoreArr[i+1][0];
+                        frameScoreArr[i] +=  throwScoreArr[i][k]  + throwScoreArr[i+1][0];
                     else
-                        frameScoreArr[i] = throwScoreArr[i][k];
+                        frameScoreArr[i] += throwScoreArr[i][k];
                 }
-                else if (rollScore == 'X'){
+                else if (rollScore == 'X'){ //handle X on last frame and one on previous differntly!
                     throwScoreArr[i][k] = 10;
-                    if (i < frameList.size()-2)
-                        frameScoreArr[i] =    throwScoreArr[i][k]  + throwScoreArr[i+1][0] + throwScoreArr[i+2][0];
+                    if (i < frameList.size()-1){
+                        //Get first throw  from next frame.
+                        frameScoreArr[i] =    throwScoreArr[i][k]  + throwScoreArr[i+1][0] ;
+                        if (  frameList.get(i+1).length > 1 ) // if the next frame has a second throw
+                            frameScoreArr[i] += throwScoreArr[i+1][1];
+                        else if(i < frameList.size()-2) // Get first throw from next frame +1
+                            frameScoreArr[i] += throwScoreArr[i+2][0];
+                    }
                     else
-                        frameScoreArr[i] =throwScoreArr[i][k];
+                        frameScoreArr[i]  += throwScoreArr[i][k];
                 }
             }
         }
