@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class BowlingGame {
+    List<Frame> frameList
+    Frame currentFrame
+    Frame prevFrame
+    calculateGameScore()
+    populateFrameList()
+}
+
+class Frame{
+    Frame nextFrame
+    int[] throwsArr
+    int score
+    getFirstThrow()
+    getSecondThrow()
+    calculateScore()
+}
+class SpareFrame{
+    calculateScore()
+}
+class StrikeFrame{
+    calculateScore()
+}
+Frame <|-- StrikeFrame
+Frame  <|-- SpareFrame
+
+
+class FrameCreatorFactory{
+    createFrame(int[] throws)
+}
+
+class ThrowScoreKeeper{
+ List<int[]> throwList
+}
+
+class GameScorer {
+ sumAllFrameScores(Frame firstFrame)
+}
+
+
+
+@enduml

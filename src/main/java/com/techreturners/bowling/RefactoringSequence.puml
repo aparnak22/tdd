@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+User -> BowlingGame: calculateScore()
+BowlingGame --> BowlingGame:populateFrameList()
+BowlingGame -> FrameCreatorFactory:createFrame()
+FrameCreatorFactory -> Frame:new()
+Frame --> FrameCreatorFactory:Frame
+FrameCreatorFactory --> BowlingGame:Frame
+BowlingGame -> Frame:score()
+Frame --> BowlingGame:score
+BowlingGame -> GameScorer:sumAllFrameScores(firstFrame)
+GameScorer --> BowlingGame:score
+BowlingGame --> User:score
+
+@enduml
