@@ -1,5 +1,5 @@
 package com.techreturners.poker;
 
 public enum Suit {
-    H
+    D, H, C, S
 }
