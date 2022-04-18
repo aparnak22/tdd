@@ -5,16 +5,17 @@ public class Card {
     private final Suit suit;
     private int value;
 
+
     public Card(String cardStr) {
         setValue(cardStr.substring(0,1));
         suit = Suit.valueOf(cardStr.substring(1));
     }
 
-    public Suit getSuit() {
+    public Suit suit() {
         return suit;
     }
 
-    public int getValue() {
+    public int value() {
         return value;
     }
 
