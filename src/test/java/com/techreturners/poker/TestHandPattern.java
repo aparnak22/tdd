@@ -27,4 +27,13 @@ public class TestHandPattern {
         assertEquals(Pattern.STRAIGHT_FLUSH, playerHand3.getPattern());
         assertEquals(12, playerHand3.getValue());*/
     }
+
+    @Test
+    public void testHandPatternFullHouse() {
+        Hand playerHand = new Hand("5H 5D 5C 6S 6H");
+
+        assertEquals(5, playerHand.getCards().size());
+        assertEquals(Pattern.FULL_HOUSE, playerHand.getPattern());
+        assertEquals(5, playerHand.getValue());
+    }
 }
