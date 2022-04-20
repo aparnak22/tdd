@@ -17,4 +17,17 @@ public class TestGamePlay {
 
 
     }
+
+    @Test
+    public void testOnePlayerWinsWithHighCard(){
+        String player1 = "2H 3D 5S 9C KD";
+        String player2 = "2C 3H 4S 8C AH";
+
+        GamePlay game = new GamePlay(player1, player2);
+
+        assertEquals(2, game.winnerPlayerNo());
+        assertEquals(14,game.winningHand().getValue());
+
+    }
 }
+

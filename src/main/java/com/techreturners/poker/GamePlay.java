@@ -23,15 +23,24 @@ public class GamePlay {
             winnerPlayerNo = 2;
         }
         else if(player1Hand.getPattern().getPostion()  == player2Hand.getPattern().getPostion()){
-            int plValue = player1Hand.getValue();
-            int p2Value = player2Hand.getValue();
-            if (plValue >= p2Value){ // todo: change to check for next value
+            int p1Value = player1Hand.getValue();
+            int p2Value = player2Hand.getValue(); int rank = 1;
+
+            while (rank < 5 && p1Value == p2Value){
+                p1Value = player1Hand.getNextValue(rank);
+                p2Value = player1Hand.getNextValue(rank);
+                rank++;
+            }
+            if (p1Value > p2Value){
                 winningHand = player1Hand;
                 winnerPlayerNo = 1;
             }
-            else{
+            else if (p1Value < p2Value){
                 winningHand = player2Hand;
                 winnerPlayerNo = 2;
+            }
+            else {
+                winnerPlayerNo = 0;//tie
             }
         }
         //return 0;

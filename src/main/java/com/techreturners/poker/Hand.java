@@ -39,4 +39,8 @@ public class Hand {
     public int getValue() {
         return handValue;
     }
+
+    public int getNextValue(int rank) {
+        return patternHelper.getNextValue(cards, rank);
+    }
 }
