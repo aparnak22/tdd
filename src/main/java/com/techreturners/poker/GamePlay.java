@@ -24,11 +24,12 @@ public class GamePlay {
         }
         else if(player1Hand.getPattern().getPostion()  == player2Hand.getPattern().getPostion()){
             int p1Value = player1Hand.getValue();
-            int p2Value = player2Hand.getValue(); int rank = 1;
+            int p2Value = player2Hand.getValue();
+            int rank = 2;
 
             while (rank < 5 && p1Value == p2Value){
                 p1Value = player1Hand.getNextValue(rank);
-                p2Value = player1Hand.getNextValue(rank);
+                p2Value = player2Hand.getNextValue(rank);
                 rank++;
             }
             if (p1Value > p2Value){

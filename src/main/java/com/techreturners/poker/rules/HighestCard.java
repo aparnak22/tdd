@@ -25,12 +25,12 @@ public class HighestCard implements PatternHelper {
 
     @Override
     public int getHandValue(List<Card> cards) {
-        return getNextValue(cards,0);
+        return getNextValue(cards,1);
     }
 
     @Override
     public int getNextValue(List<Card> cards, int no) {
         cards.sort(Card::compareTo);
-        return cards.get(no).value();
+        return cards.get(no-1).value();
     }
 }

@@ -3,6 +3,7 @@ package com.techreturners.poker;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class TestGamePlay {
 
@@ -27,6 +28,47 @@ public class TestGamePlay {
 
         assertEquals(2, game.winnerPlayerNo());
         assertEquals(14,game.winningHand().getValue());
+
+    }
+    /*Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH
+Black: 2H 4S 4C 2D 4H  White: 2S 8S AS QS 3S
+Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C KH
+Black: 2H 3D 5S 9C KD  White: 2D 3H 5C 9S KH
+    * */
+    @Test
+    public void testWithFullHouse(){
+        String player1 = "2H 4S 4C 2D 4H";
+        String player2 = "2S 8S AS QS 3S";
+
+        GamePlay game = new GamePlay(player1, player2);
+
+        assertEquals(1, game.winnerPlayerNo());
+        assertEquals(Pattern.FULL_HOUSE, game.winningHand().getPattern());
+        assertEquals(4,game.winningHand().getValue());
+    }
+
+    @Test
+    public void testWithHighCard(){
+        String player1 = "2H 3D 5S 9C KD";
+        String player2 = "2C 3H 4S 8C KH";
+
+        GamePlay game = new GamePlay(player1, player2);
+
+        assertEquals(1, game.winnerPlayerNo());
+        assertEquals(Pattern.HIGHEST_CARD, game.winningHand().getPattern());
+       // assertEquals(9,game.winningHand().getValue());
+    }
+
+
+    @Test
+    public void testTie(){
+        String player1 = "2H 3D 5S 9C KD";
+        String player2 = "2D 3H 5C 9S KH";
+
+        GamePlay game = new GamePlay(player1, player2);
+
+        assertEquals(0, game.winnerPlayerNo());
+        assertNull(game.winningHand());
 
     }
 }
