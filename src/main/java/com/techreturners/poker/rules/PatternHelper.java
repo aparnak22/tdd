@@ -11,4 +11,6 @@ public interface PatternHelper {
     boolean check(List<Card> cards);
 
     int getHandValue(List<Card> cards);
+
+    int getNextValue(List<Card> cards, int no);
 }

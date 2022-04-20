@@ -30,6 +30,11 @@ public class FullHouse implements PatternHelper{
         else return -1;
     }
 
+    @Override
+    public int getNextValue(List<Card> cards, int no) {
+        return getHandValue(cards);
+    }
+
     private List<Card> getListWithNoOfSameValueCards(Map<Integer, List<Card>> valueMap, int noOfSameValueCards) {
         for (List<Card> cardList : valueMap.values()) {
             if (cardList.size() == noOfSameValueCards) {

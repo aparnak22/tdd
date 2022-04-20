@@ -11,7 +11,8 @@ public class RulesEvaluator {
                                 new StraightFlush(),
                                 new FourOfAKind(),
                                 new FullHouse(),
-                                new Flush()};
+                                new Flush(),
+                                new HighestCard()};
 
 
 

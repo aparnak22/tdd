@@ -22,6 +22,18 @@ public class GamePlay {
             winningHand = player2Hand;
             winnerPlayerNo = 2;
         }
+        else if(player1Hand.getPattern().getPostion()  == player2Hand.getPattern().getPostion()){
+            int plValue = player1Hand.getValue();
+            int p2Value = player2Hand.getValue();
+            if (plValue >= p2Value){ // todo: change to check for next value
+                winningHand = player1Hand;
+                winnerPlayerNo = 1;
+            }
+            else{
+                winningHand = player2Hand;
+                winnerPlayerNo = 2;
+            }
+        }
         //return 0;
     }
 

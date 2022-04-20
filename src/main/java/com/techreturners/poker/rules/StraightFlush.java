@@ -15,7 +15,12 @@ public class StraightFlush implements PatternHelper {
 
     @Override
     public int getHandValue(List<Card> cards) {
-        return cards.get(0).value();
+        return getNextValue(cards, 0);
+    }
+
+    @Override
+    public int getNextValue(List<Card> cards, int no) {
+        return cards.get(no).value();
     }
 
     @Override

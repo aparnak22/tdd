@@ -27,6 +27,11 @@ public class FourOfAKind implements  PatternHelper{
             return -1;
     }
 
+    @Override
+    public int getNextValue(List<Card> cards, int no) {
+        return getHandValue(cards);
+    }
+
     private List<Card> getListWithFourCards(Map<Integer, List<Card>> valueMap) {
         for (List<Card> cardList : valueMap.values()) {
             if (cardList.size() == 4) {
