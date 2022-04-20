@@ -10,7 +10,8 @@ public class RulesEvaluator {
     private static final PatternHelper[] rulesListInOrder = new PatternHelper[]{
                                 new StraightFlush(),
                                 new FourOfAKind(),
-                                new FullHouse()};
+                                new FullHouse(),
+                                new Flush()};
 
 
 

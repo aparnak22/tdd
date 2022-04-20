@@ -1,6 +1,7 @@
 package com.techreturners.poker.rules;
 
 import com.techreturners.poker.Card;
+import com.techreturners.poker.Suit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,5 +24,21 @@ public class CardUtils {
             }
         }
         return valueMap;
+    }
+
+    public static Map<Suit, List<Card>> getCardsMapBySuit(List<Card> cards){
+        Map<Suit, List<Card>> suitMap = new HashMap<>();
+        for (Card card :
+                cards) {
+            if (suitMap.containsKey(card.suit())){
+                suitMap.get(card.suit()).add(card);
+            }
+            else {
+                List<Card> clist = new ArrayList<>();
+                clist.add(card);
+                suitMap.put(card.suit(),clist);
+            }
+        }
+        return suitMap;
     }
 }

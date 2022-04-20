@@ -1,7 +1,7 @@
 package com.techreturners.poker;
 
 
-public class Card {
+public class Card implements Comparable<Card> {
     private final Suit suit;
     private int value;
 
@@ -33,5 +33,11 @@ public class Card {
                 default -> throw new IllegalArgumentException("Unknown card denomination " + cardValueStr);
             };
         }
+    }
+
+
+    @Override
+    public int compareTo(Card c) {
+        return c.value() - value();
     }
 }

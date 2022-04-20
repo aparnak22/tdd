@@ -36,4 +36,13 @@ public class TestHandPattern {
         assertEquals(Pattern.FULL_HOUSE, playerHand.getPattern());
         assertEquals(5, playerHand.getValue());
     }
+
+    @Test
+    public void testHandPatternFlush() {
+        Hand playerHand = new Hand("3D TD QD 6D 9D");
+
+        assertEquals(5, playerHand.getCards().size());
+        assertEquals(Pattern.FLUSH, playerHand.getPattern());
+        assertEquals(12, playerHand.getValue());
+    }
 }
