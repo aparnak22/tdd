@@ -8,7 +8,8 @@ import java.util.List;
 public class RulesEvaluator {
 
     private static final PatternHelper[] rulesListInOrder = new PatternHelper[]{
-                                new StraightFlush()};
+                                new StraightFlush(),
+                                new FourOfAKind()};
 
 
 

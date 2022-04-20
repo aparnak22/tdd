@@ -2,10 +2,11 @@ package com.techreturners.poker;
 
 public enum Pattern {
 
-    STRAIGHT_FLUSH(1,"Straight flush");
+    STRAIGHT_FLUSH(1,"Straight flush"),
+    FOUR_OF_A_KIND(2, "Four of a kind");
 
-    private int position;
-    private String description;
+    private final int position;
+    private final String description;
 
     Pattern(int position, String description) {
         this.position = position;
