@@ -12,6 +12,9 @@ public class RulesEvaluator {
                                 new FourOfAKind(),
                                 new FullHouse(),
                                 new Flush(),
+                                new ThreeOfAKind(),
+                                new TwoPairs(),
+                                new OnePair(),
                                 new HighestCard()};
 
 
