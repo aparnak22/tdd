@@ -71,5 +71,16 @@ Black: 2H 3D 5S 9C KD  White: 2D 3H 5C 9S KH
         assertNull(game.winningHand());
 
     }
+
+
+    @Test
+    public void testPlayer1WinsWithStraight(){
+        String player1 = "2S 3H 4H 5S 6C";
+        String player2 = "AH AC 5H 6H AS";
+        GamePlay game = new GamePlay(player1, player2);
+        assertEquals(1,game.winnerPlayerNo());
+        assertEquals("Straight", game.winningHand().getPattern().getDescription());
+
+    }
 }
 

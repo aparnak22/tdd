@@ -6,10 +6,11 @@ public enum Pattern {
     FOUR_OF_A_KIND(2, "Four of a kind"),
     FULL_HOUSE(3,"Full house" ),
     FLUSH(4,"Flush"),
-    THREE_OF_A_KIND(5, "Three of a kind"),
-    TWO_PAIRS(6, "Two Pairs"),
-    ONE_PAIR(7, "One Pair"),
-    HIGHEST_CARD(8,"Highest card");
+    STRAIGHT(5,"Straight"),
+    THREE_OF_A_KIND(6, "Three of a kind"),
+    TWO_PAIRS(7, "Two Pairs"),
+    ONE_PAIR(8, "One Pair"),
+    HIGHEST_CARD(9,"Highest card");
 
 
     private final int position;
