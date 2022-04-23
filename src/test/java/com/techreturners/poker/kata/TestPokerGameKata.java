@@ -7,16 +7,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestPokerGameKata {
-    private PokerHand.Result loss = PokerHand.Result.LOSS;
-    private PokerHand.Result win = PokerHand.Result.WIN;
-    private PokerHand.Result tie = PokerHand.Result.TIE;
+    private final  PokerHand.Result loss = PokerHand.Result.LOSS;
+    private final PokerHand.Result win = PokerHand.Result.WIN;
+    private final PokerHand.Result tie = PokerHand.Result.TIE;
 
     @Test
     public void PokerHandRankingTest() {
         Test("Highest straight flush wins", loss, "2H 3H 4H 5H 6H", "KS AS TS QS JS");
         Test("Straight flush wins of 4 of a kind", win, "2H 3H 4H 5H 6H", "AS AD AC AH JD");
         Test("Highest 4 of a kind wins", win, "AS AH 2H AD AC", "JS JD JC JH 3D");
-        Test("4 Of a kind wins of full house", loss, "2S AH 2H AS AC", "JS JD JC JH AD");
+        Test("4 Of a k ind wins of full house", loss, "2S AH 2H AS AC", "JS JD JC JH AD");
         Test("Full house wins of flush", win, "2S AH 2H AS AC", "2H 3H 5H 6H 7H");
         Test("Highest flush wins", win, "AS 3S 4S 8S 2S", "2H 3H 5H 6H 7H");
         Test("Flush wins of straight", win, "2H 3H 5H 6H 7H", "2S 3H 4H 5S 6C");
