@@ -14,37 +14,17 @@ public class GamePlay {
 
 
     private void setWinner() {
-        if (player1Hand.getPattern().getPostion()  < player2Hand.getPattern().getPostion()){
-            winningHand = player1Hand;
+        int result = player1Hand.compareWith(player2Hand);
+        if (result > 0 ){
             winnerPlayerNo = 1;
+            winningHand = player1Hand;
         }
-        else if(player1Hand.getPattern().getPostion()  > player2Hand.getPattern().getPostion()){
-            winningHand = player2Hand;
+        else if ( result < 0 ){
             winnerPlayerNo = 2;
+            winningHand = player2Hand;
         }
-        else if(player1Hand.getPattern().getPostion()  == player2Hand.getPattern().getPostion()){
-            int p1Value = player1Hand.getValue();
-            int p2Value = player2Hand.getValue();
-            int rank = 2;
+        else winnerPlayerNo = 0;
 
-            while (rank < 5 && p1Value == p2Value){
-                p1Value = player1Hand.getNextValue(rank);
-                p2Value = player2Hand.getNextValue(rank);
-                rank++;
-            }
-            if (p1Value > p2Value){
-                winningHand = player1Hand;
-                winnerPlayerNo = 1;
-            }
-            else if (p1Value < p2Value){
-                winningHand = player2Hand;
-                winnerPlayerNo = 2;
-            }
-            else {
-                winnerPlayerNo = 0;//tie
-            }
-        }
-        //return 0;
     }
 
     public  Hand winningHand(){
@@ -54,4 +34,6 @@ public class GamePlay {
     public int winnerPlayerNo() {
         return winnerPlayerNo;
     }
+
+
 }
