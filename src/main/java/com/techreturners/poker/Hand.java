@@ -9,10 +9,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Hand {
+
     private final List<Card> cards = new ArrayList<>();
+
     private PatternHelper patternHelper;
-    private int handValue = -1;
+ //   private int handValue = -1;
     private final Map<Integer, List<Card>> valueListMap;
+    private final Map<Suit, List<Card>>  suitListMap;
+
     public Hand(String cardsInHand) {
         String[] cardsArr = cardsInHand.split(" ");
         for (String cardStr : cardsArr
@@ -20,13 +24,13 @@ public class Hand {
             cards.add(new Card(cardStr));
         }
         valueListMap = CardUtils.getCardsMapByValues(cards);
+        suitListMap = CardUtils.getCardsMapBySuit(cards);
         setPattern();
-        if ( patternHelper!=null)
-            handValue = patternHelper.getHandValue(cards);
+
     }
 
     private void setPattern() {
-        patternHelper = RulesEvaluator.evaluateHand(cards);
+        patternHelper = RulesEvaluator.evaluateHand(cards, valueListMap, suitListMap);
     }
 
 
@@ -38,14 +42,14 @@ public class Hand {
         return patternHelper.getName();
     }
 
-    public int getValue() {
+/*    public int getValue() {
         return handValue;
     }
-
-    public int getNextValue(int rank) {
+*/
+ /*   public int getNextValue(int rank) {
         return patternHelper.getNextValue(cards, rank);
     }
-
+*/
 
     public int compareWith(Hand hand) {
         // compare the value of the paired hand

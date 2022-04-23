@@ -2,8 +2,10 @@ package com.techreturners.poker.rules;
 
 import com.techreturners.poker.Card;
 import com.techreturners.poker.Pattern;
+import com.techreturners.poker.Suit;
 
 import java.util.List;
+import java.util.Map;
 
 public class StraightFlush implements PatternHelper {
 
@@ -12,37 +14,21 @@ public class StraightFlush implements PatternHelper {
         return Pattern.STRAIGHT_FLUSH;
     }
 
-
     @Override
-    public int getHandValue(List<Card> cards) {
-        return getNextValue(cards, 0);
-    }
+    public boolean check(List<Card> cards, Map<Integer, List<Card>> valueListMap,
+                         Map<Suit, List<Card>> suitListMap ) {
 
-    @Override
-    public int getNextValue(List<Card> cards, int no) {
-        return cards.get(no).value();
-    }
+        boolean sameSuit = (suitListMap.size() == 1);
 
-    @Override
-    public boolean check(List<Card> cards) {
-        boolean sameSuit = true;
-
-        for (int i = 1; i < cards.size() && sameSuit; i++) {
-            if ( cards.get(0).suit() != cards.get(i).suit() ){
-                sameSuit = false;
-            }
-        }
         if ( sameSuit ) {
-            cards.sort((c1, c2) -> c2.value() - c1.value());
+            cards.sort(Card::compareTo);
             boolean cardsInOrder = true; int i=0;
             while (i<cards.size()-1 && cardsInOrder){
                 if ( cards.get(i).value() != cards.get(i+1).value() + 1)
                     cardsInOrder = false;
                 i++;
             }
-            //cards are of same suit
             return cardsInOrder;
-
         }
         return false;
     }

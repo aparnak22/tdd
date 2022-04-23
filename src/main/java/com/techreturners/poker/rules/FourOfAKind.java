@@ -2,6 +2,7 @@ package com.techreturners.poker.rules;
 
 import com.techreturners.poker.Card;
 import com.techreturners.poker.Pattern;
+import com.techreturners.poker.Suit;
 
 import java.util.*;
 
@@ -12,24 +13,9 @@ public class FourOfAKind implements  PatternHelper{
     }
 
     @Override
-    public boolean check(List<Card> cards) {
-        Map<Integer, List<Card>> valueMap = CardUtils.getCardsMapByValues(cards);
-        return getListWithFourCards(valueMap) != null;
-    }
-
-    @Override
-    public int getHandValue(List<Card> cards) {
-        Map<Integer, List<Card>> valueMap = CardUtils.getCardsMapByValues(cards);
-        List<Card> cardList = getListWithFourCards(valueMap);
-        if (cardList!=null)
-            return cardList.get(0).value();
-        else
-            return -1;
-    }
-
-    @Override
-    public int getNextValue(List<Card> cards, int no) {
-        return getHandValue(cards);
+    public boolean check(List<Card> cards,  Map<Integer, List<Card>> valueListMap,
+                         Map<Suit, List<Card>> suitListMap) {
+        return getListWithFourCards(valueListMap) != null;
     }
 
     private List<Card> getListWithFourCards(Map<Integer, List<Card>> valueMap) {

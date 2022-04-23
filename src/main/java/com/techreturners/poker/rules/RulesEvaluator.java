@@ -1,9 +1,10 @@
 package com.techreturners.poker.rules;
 
 import com.techreturners.poker.Card;
-import com.techreturners.poker.Pattern;
+import com.techreturners.poker.Suit;
 
 import java.util.List;
+import java.util.Map;
 
 public class RulesEvaluator {
 
@@ -21,10 +22,12 @@ public class RulesEvaluator {
 
 
 
-    public static PatternHelper evaluateHand(List<Card> cardList){
+    public static PatternHelper evaluateHand(List<Card> cardList,
+                                             Map<Integer, List<Card>> valueListMap,
+                                             Map<Suit, List<Card>> suitListMap){
         int i=0; boolean patternFound ;
         while(i<rulesListInOrder.length ){
-            patternFound = rulesListInOrder[i].check(cardList);
+            patternFound = rulesListInOrder[i].check(cardList, valueListMap, suitListMap);
             if (patternFound){
                 return rulesListInOrder[i];
             }

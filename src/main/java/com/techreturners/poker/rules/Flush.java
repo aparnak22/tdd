@@ -16,19 +16,10 @@ public class Flush implements PatternHelper {
     }
 
     @Override
-    public boolean check(List<Card> cards) {
-        Map<Suit,List<Card>> suitListMap = CardUtils.getCardsMapBySuit(cards);
+    public boolean check(List<Card> cards,   Map<Integer, List<Card>> valueListMap,
+                         Map<Suit, List<Card>> suitListMap) {
         return suitListMap.size() == 1 ;
     }
 
-    @Override
-    public int getHandValue(List<Card> cards) {
-        return getNextValue(cards,0);
-    }
 
-    @Override
-    public int getNextValue(List<Card> cards, int no) {
-        cards.sort(Card::compareTo);
-        return cards.get(no).value();
-    }
 }

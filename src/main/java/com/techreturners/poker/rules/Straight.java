@@ -2,8 +2,10 @@ package com.techreturners.poker.rules;
 
 import com.techreturners.poker.Card;
 import com.techreturners.poker.Pattern;
+import com.techreturners.poker.Suit;
 
 import java.util.List;
+import java.util.Map;
 
 public class Straight implements PatternHelper {
 
@@ -12,19 +14,9 @@ public class Straight implements PatternHelper {
         return Pattern.STRAIGHT;
     }
 
-
     @Override
-    public int getHandValue(List<Card> cards) {
-        return getNextValue(cards, 0);
-    }
-
-    @Override
-    public int getNextValue(List<Card> cards, int no) {
-        return cards.get(no).value();
-    }
-
-    @Override
-    public boolean check(List<Card> cards) {
+    public boolean check(List<Card> cards, Map<Integer, List<Card>> valueListMap,
+                         Map<Suit, List<Card>> suitListMap) {
         cards.sort(Card::compareTo);
         boolean cardsInOrder = true;
         for (int i = 0; cardsInOrder && (i<cards.size()-1) ; i++) {
