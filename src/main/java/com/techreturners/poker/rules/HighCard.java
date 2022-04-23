@@ -7,10 +7,10 @@ import com.techreturners.poker.Suit;
 import java.util.List;
 import java.util.Map;
 
-public class HighestCard implements PatternHelper {
+public class HighCard implements PatternHelper {
    @Override
     public Pattern getName() {
-        return Pattern.HIGHEST_CARD;
+        return Pattern.HIGH_CARD;
     }
 
     /**

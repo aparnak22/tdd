@@ -55,7 +55,7 @@ Black: 2H 3D 5S 9C KD  White: 2D 3H 5C 9S KH
         GamePlay game = new GamePlay(player1, player2);
 
         assertEquals(1, game.winnerPlayerNo());
-        assertEquals(Pattern.HIGHEST_CARD, game.winningHand().getPattern());
+        assertEquals(Pattern.HIGH_CARD, game.winningHand().getPattern());
        // assertEquals(9,game.winningHand().getValue());
     }
 

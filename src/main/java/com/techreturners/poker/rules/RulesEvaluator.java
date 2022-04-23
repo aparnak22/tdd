@@ -17,7 +17,7 @@ public class RulesEvaluator {
                                 new ThreeOfAKind(),
                                 new TwoPairs(),
                                 new OnePair(),
-                                new HighestCard()};
+                                new HighCard()};
 
 
 

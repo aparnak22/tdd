@@ -18,7 +18,7 @@ public class TestThreeOfAKind {
         assertEquals(Pattern.THREE_OF_A_KIND, hand1.getPattern());
        // assertEquals(9,hand1.getValue());
 
-        assertEquals(Pattern.HIGHEST_CARD, hand2.getPattern());
+        assertEquals(Pattern.HIGH_CARD, hand2.getPattern());
        // assertEquals(14,hand2.getValue());
     }
 }

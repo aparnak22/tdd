@@ -16,7 +16,10 @@ public class Main {
             String player2 = consoleInput.nextLine();
 
             GamePlay game = new GamePlay(player1, player2);
-            System.out.println("Player no " + game.winnerPlayerNo() + "  wins. - With " +
+            if (game.winnerPlayerNo() == 0 ){
+                System.out.println("Tie");
+            }
+            else System.out.println("Player no " + game.winnerPlayerNo() + "  wins. - With " +
                     game.winningHand().getPattern().getDescription());
 
             System.out.println("Play again (Y/N) ? ");

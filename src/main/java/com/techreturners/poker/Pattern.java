@@ -10,7 +10,7 @@ public enum Pattern {
     THREE_OF_A_KIND(6, "Three of a kind"),
     TWO_PAIRS(7, "Two Pairs"),
     ONE_PAIR(8, "One Pair"),
-    HIGHEST_CARD(9,"Highest card");
+    HIGH_CARD(9,"High card");
 
 
     private final int position;
